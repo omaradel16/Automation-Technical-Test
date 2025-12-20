@@ -41,6 +41,16 @@ public class HomePage {
         uiActions.clickOnElement(elemSignIn);
     }
 
+    /**
+     * Navigates to the "All Video Games" section via the sidebar menu.
+     * This method automates the sidebar navigation hierarchy:
+     * 1. Opens the hamburger menu.
+     * 2. Clicks "See All" to expand categories.
+     * 3. Selects "Video Games".
+     * 4. Selects the "All Video Games" sub-category.
+     * Note: Uses JavaScript clicks (`clickWithJS`) to handle potential
+     * interception issues caused by the sidebar's sliding animation.
+     */
     public void navigateToAllVideoGames() {
 
         UIActions uiActions = new UIActions();
@@ -53,20 +63,31 @@ public class HomePage {
         uiActions.clickWithJS(elemAllVideoGames);
     }
 
+    /**
+     * Applies search filters for "Free Shipping" and "New Condition".
+     * <p>
+     * This method explicitly waits for the {@code stalenessOf} the clicked element to ensure
+     * the DOM has reloaded before attempting the next interaction, preventing
+     */
     public void filterResults(){
         UIActions uiActions = new UIActions();
 
         WebElement freeShippingFilter = getDriver().findElement(elemFreeShippingFilter);
-        WebElement conditionNewFilter = getDriver().findElement(elemConditionNewFilter);
-
         uiActions.clickOnElement(elemFreeShippingFilter);
         getWebDriverWait().until(ExpectedConditions.stalenessOf(freeShippingFilter));
 
+        WebElement conditionNewFilter = getDriver().findElement(elemConditionNewFilter);
         uiActions.clickOnElement(elemConditionNewFilter);
         getWebDriverWait().until(ExpectedConditions.stalenessOf(conditionNewFilter));
 
     }
 
+    /**
+     * Sorts the search results by price in descending order (High to Low).
+     * <p>
+     * This method interacts with the sorting dropdown menu to apply the
+     * "Price: High to Low" filter, rearranging the product grid.
+     */
     public void sortResultsHighToLow(){
         UIActions uiActions = new UIActions();
 
@@ -75,6 +96,17 @@ public class HomePage {
 
     }
 
+    /**
+     * Iterates through search results to find and add qualifying products to the cart.
+     * <p>
+     * Logic Flow:
+     * 1. Loops through a maximum of 5 pages of results.
+     * 2. Parses the price of each product on the page.
+     * 3. If the price is below 15,000 EGP, adds the item to the cart.
+     * 4. Tracks the total count of items added locally.
+     * 5. Handles pagination by clicking the "Next" button if available.
+     * 6. Validates that the final cart count matches the local counter.
+     */
     public void addProductsBelow15k() {
 
         UIActions uiActions = new UIActions();
@@ -146,6 +178,15 @@ public class HomePage {
     }
 
     // Assertions -----------------------------------------------------------------------------------------------------
+    /**
+     * Verifies that the UI cart counter matches the internal count of added items.
+     * <p>
+     * This method synchronizes with the UI by explicitly waiting for the cart badge text
+     * to update to the expected value. It then performs a hard assertion to validate
+     * the final count.
+     * * @param itemsAdded The expected number of items (tracked locally during the add-to-cart loop).
+     * @throws AssertionError if the UI count does not match the expected count after the wait timeout.
+     */
     public void verifyProductsAddedToCart(int itemsAdded) {
         try {
             getWebDriverWait().until(ExpectedConditions.textToBe(
