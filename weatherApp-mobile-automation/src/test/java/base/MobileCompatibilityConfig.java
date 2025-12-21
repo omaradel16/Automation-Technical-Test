@@ -26,16 +26,18 @@ public class MobileCompatibilityConfig {
     public static AndroidDriver androidConfig() throws MalformedURLException {
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, getDesiredCapability("platformName"));
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, getDesiredCapability("automationName"));
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_7Pro");
-        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
-//        getDesiredCapability("platformVersion")
-        caps.setCapability(MobileCapabilityType.APP, Paths.get(System.getProperty("user.dir"), "weather-app.apk").toString());
+        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, getDesiredCapability("platformVersion"));
+
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, getDesiredCapability("deviceName"));
+        caps.setCapability(MobileCapabilityType.UDID, getDesiredCapability("udid"));
+
+        caps.setCapability("appium:ignoreHiddenApiPolicyError", true);
 
         caps.setCapability("appPackage", getDesiredCapability("appPackage"));
         caps.setCapability("appActivity", getDesiredCapability("appActivity"));
         caps.setCapability("autoGrantPermissions", getDesiredCapability("autoGrantPermissions"));
 
-        caps.setCapability("udid", "RZ8M928DZ8T");
+        caps.setCapability(MobileCapabilityType.APP, Paths.get(System.getProperty("user.dir"), "weather-app.apk").toString());
 
         return new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);
     }

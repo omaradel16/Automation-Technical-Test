@@ -72,8 +72,6 @@ public class MobileUIBaseTest {
         homeScreen          = new HomeScreen(mobileObject);
         settingsScreen         = new SettingsScreen(mobileObject);
 
-        setDeviceLocation();
-
     }
 
 
@@ -124,11 +122,4 @@ public class MobileUIBaseTest {
                 MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
     }
 
-    public void setDeviceLocation() {
-
-        Location location = new Location(30.0444, 31.2357, 10);
-
-        mobileObject.setLocation(location);
-        System.out.println("Device location set to: Cairo, Egypt");
-    }
 }

@@ -62,14 +62,22 @@ public class SettingsScreen extends BaseScreen {
         MobileUIActions.setExplicitWait(mobileObject, doneBtn, 15);
         MobileUIActions.Click(doneBtn);
 
-        MobileUIActions.setExplicitWait(mobileObject, gotItBtn, 15);
-        MobileUIActions.Click(gotItBtn);
-
-        MobileUIActions.setExplicitWait(mobileObject, allowWhileUsingAppBtn, 15);
-        MobileUIActions.Click(allowWhileUsingAppBtn);
+        try {
+            MobileUIActions.setExplicitWait(mobileObject, gotItBtn, 5);
+            MobileUIActions.Click(gotItBtn);
+        } catch (Exception e) {
+            //
+        }
 
         try {
-            MobileUIActions.setExplicitWait(mobileObject, cancelBtn, 5);
+            MobileUIActions.setExplicitWait(mobileObject, allowWhileUsingAppBtn, 5);
+            MobileUIActions.Click(allowWhileUsingAppBtn);
+        } catch (Exception e) {
+            //
+        }
+
+        try {
+            MobileUIActions.setExplicitWait(mobileObject, cancelBtn, 10);
             MobileUIActions.Click(cancelBtn);
         } catch (Exception e) {
             //

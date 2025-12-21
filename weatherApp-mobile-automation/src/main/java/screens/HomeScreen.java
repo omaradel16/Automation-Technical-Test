@@ -54,7 +54,7 @@ public class HomeScreen extends BaseScreen {
 
         System.out.println("Verifying that the time format is set to 12-hour...");
 
-        Assert.assertTrue(dateTime.contains("am") || dateTime.contains("pm"), "The time format is NOT set to 12-hour." +
+        Assert.assertTrue(dateTime.contains("AM") || dateTime.contains("PM"), "The time format is NOT set to 12-hour." +
                 " Current date and time: " + dateTime);
 
     }
