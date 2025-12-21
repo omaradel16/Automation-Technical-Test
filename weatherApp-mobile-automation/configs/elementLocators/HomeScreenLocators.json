@@ -1,0 +1,27 @@
+[
+  {
+    "name": "currentTemperatureUnit",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/tv_current_temper_unit"
+  },
+  {
+    "name": "currentDateTime",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/tv_date"
+  },
+  {
+    "name": "chartHourly",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/line_chart_hourly"
+  },
+  {
+    "name": "rainChanceIcon",
+    "type": "xpath",
+    "value": "//android.widget.ImageView[@resource-id='com.info.weather.forecast:id/iv_rain_chance']"
+  },
+  {
+    "name": "humidityIcon",
+    "type": "xpath",
+    "value": "//android.widget.LinearLayout[@resource-id='com.info.weather.forecast:id/ll_humidity']/android.widget.ImageView"
+  }
+]
