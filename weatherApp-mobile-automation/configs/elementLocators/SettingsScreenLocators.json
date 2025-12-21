@@ -1,0 +1,42 @@
+[
+  {
+    "name": "tempDropdown",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/iv_temp_dropdown"
+  },
+  {
+    "name": "FahrenheitTxt",
+    "type": "xpath",
+    "value": "//android.widget.TextView[@text=\"F\"]"
+  },
+  {
+    "name": "timeFormatDropdown",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/iv_timeformat_dropdown"
+  },
+  {
+    "name": "twelveHourTxt",
+    "type": "xpath",
+    "value": "//android.widget.TextView[@text=\"12 Hour\"]"
+  },
+  {
+    "name": "doneBtn",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/tv_button_done"
+  },
+  {
+    "name": "gotItBtn",
+    "type": "id",
+    "value": "com.info.weather.forecast:id/ll_got_it"
+  },
+  {
+    "name": "cancelBtn",
+    "type": "xpath",
+    "value": "//*[@text='CANCEL']"
+  },
+  {
+    "name": "allowWhileUsingAppBtn",
+    "type": "xpath",
+    "value": "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_foreground_only_button' or contains(@text, 'While using the app')]"
+  }
+]

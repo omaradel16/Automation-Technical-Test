@@ -15,7 +15,10 @@ public class TestWeatherApp extends MobileUIBaseTest {
     void beforeTestExample(Method method){
         // Create a new ExtentTest for each test method, making it thread-safe
         setExtentTest(extent.createTest(method.getName()));
-        mobileObject.terminateApp("com.info.weather.forecast");
+//        mobileObject.terminateApp("com.info.weather.forecast");
+        mobileObject.executeScript("mobile:shell", Map.of(
+        "command", "pm clear com.info.weather.forecast"
+        ));
         mobileObject.activateApp("com.info.weather.forecast");
     }
 
@@ -24,6 +27,10 @@ public class TestWeatherApp extends MobileUIBaseTest {
 
         ExtentTest test = getExtentTest();
         test.info("");
+
+        settingsScreen.changeTempUnitToFahrenheit();
+        settingsScreen.changeTimeFormatTo12Hour();
+        settingsScreen.saveSettings();
 
     }
 }
