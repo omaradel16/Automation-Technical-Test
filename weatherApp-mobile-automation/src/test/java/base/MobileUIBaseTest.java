@@ -28,7 +28,7 @@ public class MobileUIBaseTest {
     protected HomeScreen homeScreen;
     protected SettingsScreen settingsScreen;
 
-    public ExtentReports extent;
+    public static ExtentReports extent;
 
     public static ExtentTest getExtentTest(){
         return extentTest.get() ;
@@ -43,7 +43,7 @@ public class MobileUIBaseTest {
     @BeforeTest
     public void setUpExtentReport() {
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-        String reportPath = System.getProperty("user.dir") + "/test-output/WeatherApp_" + timeStamp;
+        String reportPath = System.getProperty("user.dir") + "/test-output/WeatherApp_" + timeStamp + ".html";
 
         ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
         spark.config().setDocumentTitle("Automation Test Report");
@@ -54,7 +54,7 @@ public class MobileUIBaseTest {
         extent.attachReporter(spark);
 
         extent.setSystemInfo("Tester", "Omar Adel");
-        extent.setSystemInfo("OS", "Android 11.0");
+        extent.setSystemInfo("OS", "Android 14.0");
     }
 
     @BeforeSuite
