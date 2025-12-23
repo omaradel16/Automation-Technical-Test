@@ -51,10 +51,12 @@ public class HomeScreen extends BaseScreen {
 
         MobileUIActions.setExplicitWait(mobileObject, currentDateTime, 20);
         String dateTime= MobileUIActions.getText(currentDateTime);
+        // Convert the string to Uppercase just for the check
+        String dateTimeUpper = dateTime.toUpperCase();
 
         System.out.println("Verifying that the time format is set to 12-hour...");
 
-        Assert.assertTrue(dateTime.contains("AM") || dateTime.contains("PM"), "The time format is NOT set to 12-hour." +
+        Assert.assertTrue(dateTimeUpper.contains("AM") || dateTimeUpper.contains("PM"), "The time format is NOT set to 12-hour." +
                 " Current date and time: " + dateTime);
 
     }
