@@ -33,10 +33,15 @@ To Run the Web Tests:
 ---
 ## 📊 Test Execution Reports
 
-For your convenience, the execution reports for both projects have been collected in the root **`Test-Reports`** folder.
+For your convenience, the execution reports and **video recordings** of the test runs have been collected in the root **`Test-Reports`** folder.
 
-* **📱 Mobile Report:** `./Test-Reports/Mobile-Report.html`
-* **🌐 Web Report:** `./Test-Reports/Web-Report.html`
+* **📱 Mobile Automation:**
+    * **Report:** `./Test-Reports/Mobile-Report/mobile-report.html`
+    * **Video:** `./Test-Reports/Mobile-Report/mobile-execution.mp4`
+
+* **🌐 Web Automation:**
+    * **Report:** `./Test-Reports/Web-Report/web-report.html`
+    * **Video:** `./Test-Reports/Web-Report/web-execution.mp4`
 
 > **Note:** These are reports from my local execution. If you run the tests yourself, new reports will be generated inside each project's respective `test-output` folder.
 ---
@@ -71,7 +76,11 @@ Automation-Technical-Test/
 │   └── README.md  
 │
 ├── Test-Reports/                      
-│   ├── Mobile-Report.html                
-│   └── Web-Report.html                                   
+│   ├── Mobile-Report/                  
+│   │   ├── mobile-report.html                
+│   │   └── mobile-execution.mp4       
+│   └── Web-Report/                     
+│       ├── web-report.html               
+│       └── web-execution.mp4                                    
 │
 └── README.md                          
